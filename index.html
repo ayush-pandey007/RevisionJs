@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Searching Visualizer App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="barContainer"></div>
+      <div id="inputContainer">
+        <div id="inputWrapper">
+          <input
+            type="text"
+            class="my-input"
+            id="inputValue"
+            placeholder="Enter Number "
+          />
+          <p>Input Value</p>
+        </div>
+        <div id="buttonWrapper">
+          <button id="linearSearchbtn" class="btn">LinearSearch</button>
+          <button id="binarySearchbtn" class="btn">BinarySearch</button>
+        </div>
+        <div class="slider-container">
+          <input
+            type="range"
+            min="5"
+            max="100"
+            value="50"
+            class="slider"
+            id="myRange"
+          />
+          <div class="value">Size Of Array: <span id="demo">50</span></div>
+        </div>
+
+        <div class="slider-container">
+          <input
+            type="range"
+            min="20"
+            max="230"
+            value="50"
+            class="slider"
+            id="mySpeed"
+          />
+          <div class="value">
+            Speed of Algorithm <span id="demo2">50 </span><span> ms</span>
+          </div>
+        </div>
+        <div id="fastSlow">
+          <div>
+            <p>Fast</p>
+          </div>
+          <div>
+            <p>Slow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
