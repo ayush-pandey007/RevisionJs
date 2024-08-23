@@ -37,8 +37,6 @@ function arrayGenerator(value) {
 function createBar(arr, value, barWidth, innerHtmlTag) {
   const barArray = arr || arrayGenerator(value);
 
-  // console.log(barArray);
-
   barArray.forEach((value, index) => {
     const divBar = document.createElement("div");
     divBar.classList.add("bars");
@@ -60,7 +58,6 @@ async function linearSearch(value) {
     isLoopRunning = true;
     animationbars[i].style.backgroundColor = "#FFDAB9";
     await new Promise((resolve) => setTimeout(resolve, speed));
-    console.log(9);
     if (animationbars[i].innerHTML == value) {
       animationbars[i].style.backgroundColor = "#DA70D6";
       alert(`found the value ${value} at index ${i}`);
@@ -82,9 +79,6 @@ async function binarySearch(value) {
   while (low <= high) {
     isLoopRunning = true;
     let mid = Math.floor((high - low) / 2 + low);
-    console.log(`high ${high}`);
-    console.log(`low ${low}`);
-    console.log(`mid ${mid}`);
     // console.log(mid);
     const Bars = document.getElementsByClassName("bars");
     Bars[mid].style.backgroundColor = "yellow";
@@ -140,7 +134,6 @@ output.innerHTML = slider.value;
 
 slider.oninput = function () {
   output.innerHTML = this.value;
-  // console.log(this.value);
   const barArray = document.getElementsByClassName("bars");
 
   while (barArray.length > 0) {
@@ -176,7 +169,6 @@ slider.oninput = function () {
     barWidth = 10;
   }
   globalArray = createBar(undefined, this.value, barWidth, innerHtmlTag);
-  // console.log(globalArray);
 };
 
 createBar(undefined, 50, 15, false);
