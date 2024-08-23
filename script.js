@@ -61,7 +61,7 @@ async function linearSearch(value) {
     animationbars[i].style.backgroundColor = "#FFDAB9";
     await new Promise((resolve) => setTimeout(resolve, speed));
     console.log(9);
-    if (animationbars[i].innerHTML == value) {
+    if (parseInt(barArray[i]) === parseInt(value)) {
       animationbars[i].style.backgroundColor = "#DA70D6";
       alert(`found the value ${value} at index ${i}`);
       continue;
@@ -85,22 +85,19 @@ async function binarySearch(value) {
     console.log(`high ${high}`);
     console.log(`low ${low}`);
     console.log(`mid ${mid}`);
+    console.log(`value ${sortedArray[mid]}`);
+    console.log(value);
     // console.log(mid);
     const Bars = document.getElementsByClassName("bars");
     Bars[mid].style.backgroundColor = "yellow";
     await new Promise((resolve) => setTimeout(resolve, speed * 2));
 
-    if (parseInt(value, 10) === parseInt(Bars[mid].innerHTML, 10)) {
-      console.log(parseInt(value, 10));
-      console.log(parseInt(parseInt(Bars[mid].innerHTML, 10)));
+    if (parseInt(value) === parseInt(sortedArray[mid])) {
       Bars[mid].style.backgroundColor = "#DA70D6";
       alert(`found the value ${value} at index ${mid}`);
       console.log("yeyyey");
       break;
-    } else if (parseInt(value, 10) > parseInt(Bars[mid].innerHTML, 10)) {
-      console.log(value);
-      console.log(Bars[mid].innerHTML);
-      console.log(value > Bars[mid].innerHTML);
+    } else if (parseInt(value) > parseInt(sortedArray[mid])) {
       for (let i = 0; i <= mid; i++) {
         Bars[i].style.backgroundColor = "#6A2C70";
       }
