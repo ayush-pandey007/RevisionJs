@@ -37,6 +37,8 @@ function arrayGenerator(value) {
 function createBar(arr, value, barWidth, innerHtmlTag) {
   const barArray = arr || arrayGenerator(value);
 
+  // console.log(barArray);
+
   barArray.forEach((value, index) => {
     const divBar = document.createElement("div");
     divBar.classList.add("bars");
@@ -58,7 +60,7 @@ async function linearSearch(value) {
     isLoopRunning = true;
     animationbars[i].style.backgroundColor = "#FFDAB9";
     await new Promise((resolve) => setTimeout(resolve, speed));
-    if (animationbars[i].innerHTML == value) {
+    if (parseInt(barArray[i]) === parseInt(value)) {
       animationbars[i].style.backgroundColor = "#DA70D6";
       alert(`found the value ${value} at index ${i}`);
       continue;
@@ -79,22 +81,17 @@ async function binarySearch(value) {
   while (low <= high) {
     isLoopRunning = true;
     let mid = Math.floor((high - low) / 2 + low);
-    // console.log(mid);
+
     const Bars = document.getElementsByClassName("bars");
     Bars[mid].style.backgroundColor = "yellow";
     await new Promise((resolve) => setTimeout(resolve, speed * 2));
 
-    if (parseInt(value, 10) === parseInt(Bars[mid].innerHTML, 10)) {
-      console.log(parseInt(value, 10));
-      console.log(parseInt(parseInt(Bars[mid].innerHTML, 10)));
+    if (parseInt(value) === parseInt(sortedArray[mid])) {
       Bars[mid].style.backgroundColor = "#DA70D6";
       alert(`found the value ${value} at index ${mid}`);
       console.log("yeyyey");
       break;
-    } else if (parseInt(value, 10) > parseInt(Bars[mid].innerHTML, 10)) {
-      console.log(value);
-      console.log(Bars[mid].innerHTML);
-      console.log(value > Bars[mid].innerHTML);
+    } else if (parseInt(value) > parseInt(sortedArray[mid])) {
       for (let i = 0; i <= mid; i++) {
         Bars[i].style.backgroundColor = "#6A2C70";
       }
@@ -134,6 +131,7 @@ output.innerHTML = slider.value;
 
 slider.oninput = function () {
   output.innerHTML = this.value;
+  // console.log(this.value);
   const barArray = document.getElementsByClassName("bars");
 
   while (barArray.length > 0) {
@@ -169,6 +167,7 @@ slider.oninput = function () {
     barWidth = 10;
   }
   globalArray = createBar(undefined, this.value, barWidth, innerHtmlTag);
+  // console.log(globalArray);
 };
 
 createBar(undefined, 50, 15, false);
