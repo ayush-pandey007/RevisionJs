@@ -50,7 +50,7 @@ body {
   align-items: center;
   /* width: 15%;
   height: 100vh; */
-
+  flex-grow: 1;
   flex: 0 0 15%;
 }
 
@@ -120,7 +120,7 @@ body {
   color: #333;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-  margin-top: 10rem;
+  margin-top: 30px;
 }
 
 .my-input::placeholder {

@@ -211,16 +211,14 @@ setInterval(() => {
 }, 100);
 
 function resizeChild() {
-  const parentWidth = container.offsetWidth; // Get parent's width
+  const parentWidth = container.offsetWidth;
   const parentHeight = container.offsetHeight;
   const bars = document.getElementsByClassName("bars");
 
-  // Iterate through all the bars and resize them
   for (let i = 0; i < bars.length; i++) {
-    bars[i].style.width = parentWidth / (2 * bars.length) + "px"; // Distribute width evenly
+    bars[i].style.width = parentWidth / (2 * bars.length) + "px";
     bars[i].style.height =
-      parseInt((globalArray[i] / 100) * (parentHeight - 400)) + "px";
-    // Adjust height for all bars
+      parseInt((globalArray[i] / 100) * (parentHeight - 200)) + "px";
 
     console.log(bars[i].style.width);
     console.log(parentHeight);
