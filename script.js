@@ -168,6 +168,7 @@ slider.oninput = function () {
     barWidth = 10;
   }
   globalArray = createBar(undefined, this.value, barWidth, innerHtmlTag);
+  resizeChild();
 };
 
 createBar(undefined, 50, 15, false);
