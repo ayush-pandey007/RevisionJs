@@ -2,6 +2,7 @@ const barContainer = document.getElementById("barContainer");
 const userInput = document.getElementById("inputValue");
 const linearSearchbtn = document.getElementById("linearSearchbtn");
 const binarySearchbtn = document.getElementById("binarySearchbtn");
+const container = document.getElementById("container");
 
 userInput.addEventListener("input", checkInput);
 let globalArray = [];
@@ -44,7 +45,7 @@ function createBar(arr, value, barWidth, innerHtmlTag) {
     divBar.classList.add("bars");
 
     innerHtmlTag ? (divBar.innerHTML = value) : console.log("be happy");
-    divBar.style.height = `${value * 5}px`;
+    divBar.style.height = `${value * 8}px`;
     divBar.style.width = `${barWidth}px`;
     barContainer.appendChild(divBar);
   });
@@ -167,7 +168,6 @@ slider.oninput = function () {
     barWidth = 10;
   }
   globalArray = createBar(undefined, this.value, barWidth, innerHtmlTag);
-  // console.log(globalArray);
 };
 
 createBar(undefined, 50, 15, false);
@@ -208,3 +208,24 @@ setInterval(() => {
     speedSlider.disabled = false;
   }
 }, 100);
+
+function resizeChild() {
+  const parentWidth = container.offsetWidth; // Get parent's width
+  const parentHeight = container.offsetHeight;
+  const bars = document.getElementsByClassName("bars");
+
+  // Iterate through all the bars and resize them
+  for (let i = 0; i < bars.length; i++) {
+    bars[i].style.width = parentWidth / (2 * bars.length) + "px"; // Distribute width evenly
+    bars[i].style.height =
+      parseInt((globalArray[i] / 100) * (parentHeight - 400)) + "px";
+    // Adjust height for all bars
+
+    console.log(bars[i].style.width);
+    console.log(parentHeight);
+  }
+}
+
+window.addEventListener("resize", resizeChild);
+
+resizeChild();
